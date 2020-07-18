@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   namespace:api, defaults: {format: :json} do
     namespace:v1 do
-      # We are going to list our resources here
+      resources :users, only: %i(create update destroy)
     end
   end
 end
