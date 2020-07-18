@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_010145) do
+ActiveRecord::Schema.define(version: 2020_07_18_215011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string "_id"
+    t.string "height"
+    t.string "race"
+    t.string "gender"
+    t.string "birth"
+    t.string "spouse"
+    t.string "death"
+    t.string "realm"
+    t.string "hair"
+    t.string "name"
+    t.string "wikiUrl"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string "_id"
+    t.text "dialog"
+    t.string "movie_id"
+    t.string "character_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
